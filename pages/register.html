@@ -9,12 +9,16 @@
 		<nav>
 			<div class="header">
 				<ul>
-					<li>Item 1</li>
+					<li>Home</li>
 					<li>Item 2</li>
 					<li>Item 3</li>
 					<li>Item 4</li>
-					<li>Item 5</li>
+					<li>Login</li>
 				</ul>
+			</div>
+			<div class="search-form">
+				<label for="search">Search:</label>
+				<input type="text" name="search" id="search">
 			</div>
 		</nav>
 	</header>
@@ -24,11 +28,11 @@
 				<form action="" method="post">
 					<div>
 						<label for="username"><span class="required">*</span>Username:</label>
-						<input type="text" name="username" value="" id="username" placeholder="Choose a username.">
+						<input type="text" name="username" value="" id="username" placeholder="Choose a username." required="required">
 					</div>
 					<div>
 						<label for="email"><span class="required">*</span>Email:</label>
-						<input type="text" name="email" value="" id="email" placeholder="Enter your email address.">
+						<input type="text" name="email" value="" id="email" placeholder="Enter your email address." required="required">
 					</div>
 					<div>
 						<label for="first-name">First name:</label>
@@ -40,11 +44,11 @@
 					</div>
 					<div>
 						<label for="password"><span class="required">*</span>Password:</label>
-						<input type="text" name="password" value="" id="password" placeholder="Enter your passwrod.">
+						<input type="password" name="password" value="" id="password" placeholder="Enter your password." required="required">
 					</div>
 					<div>
 						<label for="re-password"><span class="required">*</span>Retype:</label>
-						<input type="text" name="re-password" value="" id="re-password" placeholder="Retype your password">
+						<input type="password" name="re-password" value="" id="re-password" placeholder="Retype your password" required="required">
 					</div>
 					<div class="submit-field">
 						<input type="submit" value="Register" id="submit">
@@ -55,7 +59,7 @@
 	</main>
 	<footer>
 		<div class="footer">
-			TODO
+			2014 by team Cyan Blue Azure
 		</div>
 	</footer>
 </body>
