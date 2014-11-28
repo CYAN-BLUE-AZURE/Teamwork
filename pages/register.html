@@ -3,28 +3,26 @@
 <head>
 	<title>Forum Title</title>
 	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="../scripts/scripts.js"></script>
 </head>
 <body>
-	<header>
-		<nav>
-			<div class="header">
-				<ul class="navigation">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="#">Item 2</a></li>
-					<li><a href="#">Item 3</a></li>
-					<li><a href="#">Item 4</a></li>
-					<li><a href="#">Login</a></li>
-				</ul>
-			</div>
-			<div class="search-form">
-				<label for="search">Search:</label>
-				<input type="text" name="search" id="search">
-			</div>
-		</nav>
-	</header>
-	<main>
-		<div class="wrapper">
+    <header>
+        <nav>
+            <ul class="navigation">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Item 4</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+        <div class="search-form">
+            <label for="search">Search:</label>
+            <input type="text" name="search" id="search">
+        </div>
+    </header>
+	<main>		
 			<div class="register-form">
 				<form action="" method="post">
 					<div>
@@ -55,11 +53,10 @@
 						<input type="submit" value="Register" id="submit">
 					</div>
 				</form>
-			</div>
-		</div>
+			</div>		
 	</main>
 	<footer>
-		<div class="footer">
+		<div id="footer">
 			2014 by team Cyan Blue Azure
 		</div>
 	</footer>
