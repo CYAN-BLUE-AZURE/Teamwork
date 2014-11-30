@@ -112,13 +112,33 @@ header nav ul li a:hover{
 	background: rgba(255,255,255,0.75);
 }
 
-.posts{
+#categories{
 	padding: 3rem;
 	font-size: 1.1rem;
-	min-height: 70rem;
+	min-height: 60rem;
 	float: left;
-	width: 80%;
+	width: 20%;
+	border: 1px solid blue;
 }
+
+#topics{
+	padding: 3rem;
+	font-size: 1.1rem;
+	min-height: 60rem;
+	float: left;
+	width: 60%;
+	border: 1px solid blue;
+}
+
+#advertisements{
+	padding: 3rem;
+	font-size: 1.1rem;
+	min-height: 60rem;
+	float: left;
+	width: 20%;
+	border: 1px solid blue;
+}
+
 
 .required{
 	color: red;
