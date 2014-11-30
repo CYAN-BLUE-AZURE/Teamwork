@@ -41,14 +41,13 @@ $(function () {
         	});
         },
 
-	    loadTopics = function (sectionId) { // Doesn't work yet: TODO
+	    loadTopics = function (sectionId) { 
 	    	$.ajax({
 	    		url: urlTopics,
 	    		type: 'GET',
 	    		headers: headers,
 	    		success: function (data) {
-	    			topics = data.results;
-	    			console.log(sectionId);
+	    			topics = data.results;	    			
 	    			var topicsDiv = $('#topics');
 	    			topicsDiv.html('');
 
