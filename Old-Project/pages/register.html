@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forum Title</title>
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="../scripts/scripts.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navigation">
+                <li id="home-link"><a href="#">Home</a></li>
+                <li id="login-link"><a href="#">Login</a></li>
+            </ul>
+        </nav>
+        <div class="search-form">
+            <label for="search">Search:</label>
+            <input type="text" name="search" id="search">
+        </div>
+    </header>
+	<main>		
+			<div class="register-form">
+				<form action="" method="post">
+					<div>
+						<label for="username"><span class="required">*</span>Username:</label>
+						<input type="text" name="username" value="" id="username" placeholder="Choose a username." required="required">
+					</div>
+					<div>
+						<label for="email"><span class="required">*</span>Email:</label>
+						<input type="text" name="email" value="" id="email" placeholder="Enter your email address." required="required">
+					</div>
+					<div>
+						<label for="first-name">First name:</label>
+						<input type="text" name="first-name" value="" id="first-name" placeholder="Enter your first name.">
+					</div>
+					<div>
+						<label for="last-name">Last name:</label>
+						<input type="text" name="last-name" value="" id="last-name" placeholder="Enter your last name.">
+					</div>
+					<div>
+						<label for="password"><span class="required">*</span>Password:</label>
+						<input type="password" name="password" value="" id="password" placeholder="Enter your password." required="required">
+					</div>
+					<div>
+						<label for="re-password"><span class="required">*</span>Retype:</label>
+						<input type="password" name="re-password" value="" id="re-password" placeholder="Retype your password" required="required">
+					</div>
+					<div class="submit-field">
+						<input type="submit" value="Register" id="submit">
+					</div>
+				</form>
+			</div>		
+	</main>
+	<footer>
+		<div id="footer">
+			2014 by team Cyan Blue Azure
+		</div>
+	</footer>
+</body>
+</html>

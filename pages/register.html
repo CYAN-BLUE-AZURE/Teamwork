@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Forum Title</title>
+	<title>Register</title>
 	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
-    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="../scripts/scripts.js"></script>
+	<script src="../scripts/register.js"></script>
+	<!-- Notification -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/sudo-systems/jquery-sudo-notify/master/dist/style/jquery.sudo-notify.min.css" />
+	<script type="text/javascript" src="https://cdn.rawgit.com/sudo-systems/jquery-sudo-notify/master/dist/jquery.sudo-notify.min.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="navigation">
-                <li id="home-link"><a href="#">Home</a></li>
-                <li id="login-link"><a href="#">Login</a></li>
-            </ul>
-        </nav>
-        <div class="search-form">
-            <label for="search">Search:</label>
-            <input type="text" name="search" id="search">
-        </div>
-    </header>
-	<main>		
+	<div id="notificationContainer"></div>
+	<header>
+		<div class="forum-header">
+			<h1><a href="index.html">Blue azure</a></h1>
+		</div>
+		<nav>
+			<ul class="navigation">
+			</ul>
+		</nav>
+		<div class="search-form">
+			<input type="text" id="search" placeholder="Search...">
+			<a href="#">Search</a>
+		</div>
+	</header>
+	<main>
+		<div class="wrapper">	
 			<div class="register-form">
 				<form action="" method="post">
 					<div>
@@ -31,6 +38,14 @@
 						<input type="text" name="email" value="" id="email" placeholder="Enter your email address." required="required">
 					</div>
 					<div>
+						<label for="password"><span class="required">*</span>Password:</label>
+						<input type="password" name="password" value="" id="password" placeholder="Enter your password." required="required">
+					</div>
+					<div>
+						<label for="re-password"><span class="required">*</span>Re-type:</label>
+						<input type="password" name="re-password" value="" id="re-password" placeholder="Retype your password" required="required">
+					</div>
+					<div>
 						<label for="first-name">First name:</label>
 						<input type="text" name="first-name" value="" id="first-name" placeholder="Enter your first name.">
 					</div>
@@ -38,19 +53,13 @@
 						<label for="last-name">Last name:</label>
 						<input type="text" name="last-name" value="" id="last-name" placeholder="Enter your last name.">
 					</div>
-					<div>
-						<label for="password"><span class="required">*</span>Password:</label>
-						<input type="password" name="password" value="" id="password" placeholder="Enter your password." required="required">
-					</div>
-					<div>
-						<label for="re-password"><span class="required">*</span>Retype:</label>
-						<input type="password" name="re-password" value="" id="re-password" placeholder="Retype your password" required="required">
-					</div>
 					<div class="submit-field">
-						<input type="submit" value="Register" id="submit">
+						<a  id="submit">Sign up</a>
 					</div>
+					<div class="error-field"></div>
 				</form>
-			</div>		
+			</div>
+		</div>			
 	</main>
 	<footer>
 		<div id="footer">

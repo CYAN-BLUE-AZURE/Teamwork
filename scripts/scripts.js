@@ -1,85 +1,79 @@
-$(function () {
-	var urlAdvertisements = "https://api.parse.com/1/classes/Advertisement/";
-	var urlPosts = "https://api.parse.com/1/classes/Post/";
-	var urlSections = "https://api.parse.com/1/classes/Section/";
-	var urlTopics = "https://api.parse.com/1/classes/Topic/";
-	var headers = {
-		'X-Parse-Application-Id': 'NShcyWno2Uj50blkpsekNdhALQQHsj1tEn3S8FNM',
-		'X-Parse-REST-API-Key': 'KejEFjfrcFil5R7i9Brk0hm07MC8i6nNmyyfnPmM'
-	},
-        posts = [],
-        sections = [],
-		topics = [];
+var HEADERS = {
+	'X-Parse-Application-Id': 'NShcyWno2Uj50blkpsekNdhALQQHsj1tEn3S8FNM',
+	'X-Parse-REST-API-Key': 'KejEFjfrcFil5R7i9Brk0hm07MC8i6nNmyyfnPmM'
+}
 
-		errorMessage = function (err, message) {
-			alert(message + ': ' + err);
+function notify(type,message){
+
+	var sudoNotify = $('div#notificationContainer').sudoNotify(
+	{
+		autoHide: true,
+		showCloseButton: true,
+		duration: 6,
+		position: 'top',
+		positionType: 'absolute',
+		verticalMargin: '0px',
+		log: true,
+		opacity: 0.95,
+		defaultStyle: {
+			maxWidth: '1200px',
+			fontSize: '18px'
 		},
+		errorStyle: {
+			color: '#000000',
+			backgroundColor: '#FF5050'
+		},
+		warningStyle: {
+			color: '#000000',
+			backgroundColor: '#FFFF96'
+		},
+		successStyle: {
+			color: '#000000',
+			backgroundColor: '#B8FF6D'
+		},
+		animation: 
+		{
+		    type: 'scroll-left-fade', //fade, scroll-left, scroll-left-fade, scroll-right, scroll-right-fade, slide, slide-fade or none, expand
+			showSpeed: 600 ,
+			hideSpeed: 1000
+		},
+			onClose: function() {
+			$('div#notificationContainer').html('');
+		},
+	});
+	switch(type){
+		case 'success':
+		sudoNotify.success(message);
+		break;
+		case 'warning':
+		sudoNotify.warning(message);
+		break;
+		case 'error':
+		sudoNotify.error(message);
+		break;
+	}
+}
 
-        successMessage = function (message) {
-        	alert(message);
-        },
+$(function () {
 
-        loadSections = function () {
-        	$.ajax({
-        		url: urlSections,
-        		type: 'GET',
-        		headers: headers,
-        		success: function (data) {
-        			var loginLink = $('#login-link');
-        			//loginLink.css('background', '#99FF99');
-        			//alert('I'm in load sections');
-        			sections = data.results;
+	jQuery(document).ready(function($) {
+		drawNavigation();
 
-        			$.each(sections, function (index, section) {
-        				var currentListItem = $('<li/>').addClass('section');
-        				var currentLink = $('<a>').addClass('sectionLink').attr('href', '#').html(section.name).appendTo(currentListItem);
-        				currentLink.data('sectionId', section.objectId);
-        				currentListItem.insertBefore(loginLink);
-        				//console.log(section.objectId);
-        			});        			
-        		},
-        		error: function (err) {
-        			errorMessage(err.responseText, "Error occurred when loading sections");
-        		}
-        	});
-        },
+		function drawNavigation(){
 
-	    loadTopics = function (sectionId) { // Doesn't work yet: TODO
-	    	$.ajax({
-	    		url: urlTopics,
-	    		type: 'GET',
-	    		headers: headers,
-	    		success: function (data) {
-	    			topics = data.results;
-	    			var selectedTopics = topics.filter(function (section) {
-	    				return section.objectId == sectionId;
-	    			}),
+			if(!document.cookie){
+				var navigation = $('.navigation');
+				var home = $('<li><a href="index.html">Home</a></li>');
+				var login = $('<li><a href="login.html">Login</a></li>');
+				var register = $('<li><a class="register-tag" href="register.html">Register</a></li>');
 
-	                postsList = $('.posts');
-	    			postsList.html(''); // Delete previous posts
+				navigation.append(home);
+				navigation.append(login);
+				navigation.append(register);
+			}else{
+				//TODO:
+			}
+		}
+	});
 
-	    			$.each(selectedTopics, function (index, topic) {
-	    				console.log(JSON.stringify(topic));	    				
-	    			});
-	    		},
-	    		error: function (err) {
-	    			errorMessage(err, 'Error occured when loading topics');
-	    		}
-	    	});
-	    },
-
-
-        getSectionsById = function (sectionId) {        	
-        	return sections.filter(function (sections) {
-        		return sectionId == sections.objectId;
-        	});
-        	
-        }
-
-	$('.navigation').on('click', 'li a', function (e) {
-		loadTopics($(this).data('sectionId'));		
-		console.log($(this).data('sectionId'));                
-	});	
-
-	loadSections();
 });
