@@ -32,6 +32,7 @@ $(function () {
         				var currentListItem = $('<li/>').addClass('section');
         				var currentLink = $('<a>').addClass('sectionLink').attr('href', '#').html(section.name).appendTo(currentListItem);
         				currentLink.data('sectionId', section.objectId);
+        				$(currentLink).click(sectionClicked);
         				currentListItem.appendTo(categoriesNav);        				
         			});        			
         		},
@@ -79,6 +80,12 @@ $(function () {
 		loadTopics($(this).data('sectionId'));				             
 	});
 
+	function sectionClicked() {
+	    var topic = $(this).data('section');
+	    $("#posts").hide();
+	    $("#topics").show();
+	    
+	}
 	function topicClicked() {
 	    var topic = $(this).data('topic');
 	    $("#posts").hide();
