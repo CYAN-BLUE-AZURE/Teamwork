@@ -121,7 +121,7 @@ header nav ul li a:hover{
 	border: 1px solid blue;
 }
 
-#topics{
+#topics, #posts{
 	padding: 3rem;
 	font-size: 1.1rem;
 	min-height: 60rem;
