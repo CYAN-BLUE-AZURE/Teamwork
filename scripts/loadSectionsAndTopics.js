@@ -98,13 +98,27 @@ $(function () {
 	}
 
 	function postsLoaded(data) {
-	    $("#posts ul").html('');
+	    $("#posts div").html('');
 	    for (var a in data.results) {
 	        var post = data.results[a];
+
+	        //showing the username
+
+            //showing the text of the post
 	        var postItem = $('<p>');
 	        postItem.text(post.text + ' ');
+
+	        //showing the date of update
+	        var postDate = $('<p>');
+	        var currentDate = post.createdAt;
+	        var date = $.format.prettyDate(currentDate);
+	        postDate.text(date + ' ');
+
 	        postItem.appendTo($("#posts div"));
+	        postDate.appendTo($("#posts div"));
 	    }
+
+        //date, text, username
 	    $('#posts').show();
 	}
 
