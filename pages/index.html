@@ -3,43 +3,42 @@
 <head>
   <title>Home</title>
   <link rel="stylesheet" type="text/css" href="../styles/styles.css">
+  <link rel="stylesheet" type="text/css" href="../styles/nav-styles.css">
   <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script type="text/javascript" src="../scripts/jquery.cookie.js"></script>
   <script src="../scripts/scripts.js"></script>
   <script src="../scripts/loadSectionsAndTopics.js"></script>
-    <script src="../scripts/jquery-dateFormat.min.js"></script>
+  <script src="../scripts/jquery-dateFormat.min.js"></script>
   <!-- Notification -->
   <link rel="stylesheet" type="text/css" href="../styles/sudo-notify.css" />
   <script type="text/javascript" src="../scripts/sudo-notify.js"></script>
 </head>
+<div id="notificationContainer"></div>
 <body>
   <header>
-    <div class="forum-header">
-      <h1><a href="index.html">Blue azure</a></h1>
-    </div>
-    <nav>
-      <ul class="navigation">
+    <div id='cssmenu'>
+      <ul id="navigation">
       </ul>
-    </nav>
+    </div>
     <div class="search-form">
-      <input type="text" id="search" placeholder="Search...">
+    <input type="text" id="search" placeholder="TODO:">
       <a href="#">Search</a>
     </div>
   </header>
   <main>
     <div class="wrapper">
-		<div id="categories">
-		</div>
-		<div id="topics">
-		</div>
-        <div id="posts" style="display:none">
-            <h2>Posts</h2>
-            <div>
-
-            </div>
+      <div id="categories">
+      </div>
+      <div id="content">
+      </div>
+      <div id="posts" style="display:none">
+        <h2>Posts</h2>
+        <div>
         </div>
-		<div id="advertisements">TODO ADVERTISEMENTS
-		</div>		
+      </div>
+      <div id="advertisements">TODO ADVERTISEMENTS
+      </div>		
       <!-- TODO: -->
     </div>
   </main>
