@@ -35,7 +35,7 @@ header{
 	border: 1px solid blue;
 }
 
-#topics, #posts{
+#posts, #topicsMain{
 	padding: 3rem;
 	font-size: 1.1rem;
 	min-height: 60rem;

@@ -84,7 +84,9 @@ $(function () {
 	$('#addCategoryBtn').on('click', function () {
 	    var $categoryName = $('#addCategory').val();
 	    if (/^\s*$/.test($categoryName)) {
-	        //addEmptyItemError();
+	        
+	       //TODO validation
+	        
 	        return;
 	    }
 	    addCategory($categoryName);
@@ -109,21 +111,60 @@ $(function () {
 	    });
 	}
 
+	$('#addTopicBtn').on('click', function () {
+	    var $topicName = $('#addTopic').val();
+	    if (/^\s*$/.test($topicName)) {
+	        //addEmptyItemError();
+            //TODO validation
+	        return;
+	    }
+	    addTopic($topicName);
+	    $('#addTopic').val('');
+	});
+
+	function addTopic(topic) {
+	    var topicName = formatString(topic);
+	    var section = $('#topics h2').data('section');
+
+	    $.ajax({
+	        method: "POST",
+	        headers: headers,
+	        url: urlTopics,
+	        data: JSON.stringify({
+	            "name": topicName,
+	            'section': {
+	                "__type": "Pointer",
+	                "className": "Section",
+	                "objectId": section.objectId
+	            }
+	        }),
+	        contentType: "application/json",
+	        success: [topicCleaned(), loadTopics()],
+	        error: function (err) {
+	            errorMessage(err, 'Error occured when loading topics');
+	        }
+	    });
+	}
+
 	function sectionClicked() {
 	    var topic = $(this).data('section');
 	    $("#posts").hide();
-	    $("#topics").show();
+	    $("#topicsMain").show();
 	    
 	}
 
+    //Functions for cleaning and refreshing
 	function sectionCleaned() {
 	    $("#sections").empty();
+	}
+	function topicCleaned() {
+	    $("#topics").empty();
 	}
 
 	function topicClicked() {
 	    var topic = $(this).data('topic');
 	    $("#posts").hide();
-	    $("#topics").hide();
+	    $("#topicsMain").hide();
 	    $("#posts h2").text(topic.name);
 	    $("#posts h2").data('country', topic);
 	    var topicId = topic.objectId;
