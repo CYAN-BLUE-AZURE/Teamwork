@@ -25,7 +25,7 @@ $(function () {
         		type: 'GET',
         		headers: headers,
         		success: function (data) {
-        			var categoriesNav = $('#categories');        			    			
+        			var categoriesNav = $('#sections');        			    			
         			sections = data.results;
 
         			$.each(sections, function (index, section) {
@@ -80,12 +80,46 @@ $(function () {
 		loadTopics($(this).data('sectionId'));				             
 	});
 
+    //ADD FUNCTIONS
+	$('#addCategoryBtn').on('click', function () {
+	    var $categoryName = $('#addCategory').val();
+	    if (/^\s*$/.test($categoryName)) {
+	        //addEmptyItemError();
+	        return;
+	    }
+	    addCategory($categoryName);
+	    $('#addCategory').val('');
+	});
+
+	function addCategory(category) {
+	    var categoryName = formatString(category);
+
+	    $.ajax({
+	        method: "POST",
+	        headers: headers,
+	        url: urlSections,
+	        data: JSON.stringify({
+	            "name": categoryName
+	        }),
+	        contentType: "application/json",
+	        success: [sectionCleaned(),loadSections()],
+	        error: function (err) {
+	            errorMessage(err, 'Error occured when loading sections');
+	        }
+	    });
+	}
+
 	function sectionClicked() {
 	    var topic = $(this).data('section');
 	    $("#posts").hide();
 	    $("#topics").show();
 	    
 	}
+
+	function sectionCleaned() {
+	    $("#sections").empty();
+	}
+
 	function topicClicked() {
 	    var topic = $(this).data('topic');
 	    $("#posts").hide();
@@ -129,6 +163,10 @@ $(function () {
 	    $('#posts').show();
 	}
 
+	function formatString(string) {
+	    var trimmed = string.trim();
+	    return trimmed.charAt(0).toUpperCase() + string.slice(1);
+	}
 
 	loadSections();
 });
