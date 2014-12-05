@@ -2,6 +2,7 @@ var HEADERS = {
 	'X-Parse-Application-Id': 'NShcyWno2Uj50blkpsekNdhALQQHsj1tEn3S8FNM',
 	'X-Parse-REST-API-Key': 'KejEFjfrcFil5R7i9Brk0hm07MC8i6nNmyyfnPmM'
 }
+var CONTENT;
 
 function notify(type,message){
 
@@ -60,6 +61,7 @@ $(function () {
 	var LOGIN_HTML_ADDRES = "http://files.parsetfss.com/8da9deb0-d635-4765-9fb1-67e0a9ce75bd/tfss-10a28de7-7bcd-4828-8908-332538b37ca2-login.html";
 
 	jQuery(document).ready(function($) {
+		CONTENT = $('#content');
 		drawNavigation();
 
 		function drawNavigation(){
@@ -134,12 +136,12 @@ $(function () {
 		function drawLoginForm(){
 			if(!sessionStorage.loginHtml){
 				$.get(LOGIN_HTML_ADDRES, function(data) {
-					$('#content').html(data);
+					CONTENT.html(data);
 					$('#submit-login').on('click',tryLoginUser);
 					sessionStorage.setItem('loginHtml',data);
 				});
 			}else{
-				$('#content').html(sessionStorage.loginHtml);
+				CONTENT.html(sessionStorage.loginHtml);
 				$('#submit-login').on('click',tryLoginUser);
 			}
 		}
@@ -152,33 +154,35 @@ $(function () {
 				notify('error','Invalid username or password');
 			}else{
 				$.ajax({
-					method: "GET",
+					url: "https://api.parse.com/1/login",
+					type: "GET",
 					headers: HEADERS,
 					data:
 					{
 						"username":username,
 						"password":password
 					},
-					url: "https://api.parse.com/1/login"
-				}).success(function (data){
-					console.log(data)
-					$.cookie("sessionToken",data.sessionToken, { expires: 1 })
-					location.reload();
-				}).error(function(error){
-					notify('error','Invalid username or password');
-				});
+					success: function(data){
+						console.log(data)
+						$.cookie("sessionToken",data.sessionToken, { expires: 1 })
+						location.reload();
+					},
+					error: function(error){
+						notify('error','Invalid username or password');
+					}
+				})
 			}
 		}
 
 		function drawRegisterForm(){
 			if(!sessionStorage.registerHtml){
 				$.get(REGISTER_HTML_ADDRESSS, function(data) {
-					$('#content').html(data);
+					CONTENT.html(data);
 					$('#submit-register').on('click',registerNewUser);
 					sessionStorage.setItem('registerHtml',data);
 				});
 			}else{
-				$('#content').html(sessionStorage.registerHtml);
+				CONTENT.html(sessionStorage.registerHtml);
 				$('#submit-register').on('click',registerNewUser);
 			}
 		}
@@ -201,7 +205,8 @@ $(function () {
 				notify('error','Invalid password (The password must have at least 5 symbols.)')
 			}else{
 				$.ajax({
-					method: "POST",
+					url: "https://api.parse.com/1/users",
+					type: "POST",
 					headers: HEADERS,
 					data: JSON.stringify(
 					{
@@ -211,15 +216,15 @@ $(function () {
 						firstName: firstName,
 						lastName: lastName
 					}),
-					url: "https://api.parse.com/1/users"
-				}).success(function(data){
-					$.cookie("sessionToken",data.sessionToken, { expires: 1 });
-					notify('success', 'You have successfully signed up');
-					location.reload();
-				}).error(function() {
-					notify('error', 'I couldn\'t register you (You may be you need to pick another username)');
+					success: function(data){
+						$.cookie("sessionToken",data.sessionToken, { expires: 1 });
+						notify('success', 'You have successfully signed up');
+						location.reload();
+					},
+					error: function(eror){
+						notify('error', 'I couldn\'t register you (You may be you need to pick another username)');
+					}
 				});
-
 			}
 		}
 	});

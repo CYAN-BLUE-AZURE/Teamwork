@@ -1,23 +1,46 @@
+@font-face {
+    font-family: TopSecret;
+    src: url('../fonts/Top Secret Stamp.ttf');
+}
+
+@font-face{
+	font-family: Souses;
+	src:url('../fonts/Souses.otf');
+}
+
+@font-face{
+	font-family:GoodTimes;
+	src: url('../fonts/good times rg.ttf');
+}
+
 *{
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;    
 }
 
-body{
+html{
 	font-size: 62.5%;
+}
+
+body{
 	font-family: Verdana, Helvetica, Arial, sans-serif;
 	color: #E2E2E2;
     background: #1B1B1B url(../images/bg3.png) 0 0 repeat;
 }
+
 a{
 	text-decoration: none;
 	color: #E2E2E2;
 }
+
 .wrapper{
+	list-style: none !important;
 	min-height: 60rem;
-	margin: 3rem 1rem 1rem 1rem;
+	margin: 3rem;
 	border-radius: 0.2rem;
+	background: rgba(255,255,255,0.1);
+	padding: 2rem;
 }
 
 header{
@@ -26,22 +49,14 @@ header{
 	margin: 0rem 3rem 0rem 3rem;
 }
 
-#categories{
-	padding: 3rem;
-	font-size: 1.1rem;
-	min-height: 60rem;
-	float: left;
-	width: 20%;
-	border: 1px solid blue;
+.search-form{
+	display: inline-block;
+	position: absolute;
+	top:2rem;
+	right:2rem;
 }
-
-#posts, #topicsMain{
-	padding: 3rem;
-	font-size: 1.1rem;
-	min-height: 60rem;
-	float: left;
-	width: 60%;
-	border: 1px solid blue;
+.search-form a {
+	font-size: 1.2rem;
 }
 
 #advertisements{
@@ -50,60 +65,57 @@ header{
 	min-height: 60rem;
 	float: left;
 	width: 20%;
-	border: 1px solid blue;
 }
 
 
 .required{
 	color: red;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	vertical-align: top;
 }
 
 .register-form,.login-form{
-	font-size: 1.2rem;
+	font-size: 2.2rem;
 	text-align: center;
 	width: 100%;
+	font-family: Souses;
 }
 
 form{
 	display: inline-block;
 	padding: 1.5rem;
 	border-radius: 0.2rem;
-	border: 1px solid #7ab900;
-	background: #303030 url(../images/bg3.png) 0 0 repeat;
+	text-align: right;
 }
 
 label{
 	display: inline-block;
-	width: 8rem;
+	width: 18rem;
 	text-align: left;
 }
 
 .submit{
-	width: 100%;
+	padding:1% 5% 1% 10%;
 	display: inline-block;
 	border-radius: 0.2rem;
-	border: 1px solid #7ab900;
 	color: #fff;
-	font-weight: bold;
 	margin: 0.5rem 0 0 0;
+	border: 1px solid #555;
 }
 
 .submit:hover{
 	cursor: pointer;
-	transition: all .4s;
-	border: 1px solid #7ab900;
-	background:black;
+	transition: all .3s;
+	background:rgba(255,255,255,0.1);
 }
 
 input{
-	font-size: 1.1rem;
-	width: 14rem;
+	font-size: 1.8rem;
+	width: 30rem;
 	border-radius: 0.2rem;
 	margin: 0.2rem;
-	border: 1px solid #7ab900;
-	background: none;
+	border: none;
+	background: rgba(255,255,255,0.1);
 	color: #E2E2E2;
 }
 
@@ -115,4 +127,93 @@ input{
 	margin: 0rem 3rem 0rem 3rem;
 	padding: 2rem;
 	color: #A79787;
+}
+
+fieldset{
+	border: 1px solid #999;
+	border-radius: 0.1rem;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+legend{
+	font-family: TopSecret ,Verdana, Lucida, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 2.6rem;
+	color: #fff;
+}
+
+.topic{
+	margin:0.5rem;
+	background: rgba(255,255,255,0.1);
+	border-radius: 0.2rem;
+	padding: 0.5rem;
+}
+
+.details{
+	margin-top: 0.5rem;
+	font-size: 1.2rem;
+	font-style: italic;
+	text-align: right;
+	border-top: 1px solid #999;
+}
+
+.from-user{
+	font-weight: bold;
+	font-style: normal;
+	color:#fff;
+	font-size: 1.4rem;
+}
+
+.topic a{
+	font-size: 1.8rem;
+	font-family: GoodTimes ,Verdana, Lucida, Geneva, Helvetica, Arial, sans-serif;
+	color: #ccc;
+	padding-bottom: 0.3rem;
+	border-bottom: 3px;
+	font-style: italic; 
+}
+
+.created-at{
+	display: block;
+}
+
+.topic a:hover{
+	font-style: normal;
+	color: #fff;
+	transition: all .3s;
+}
+.post-container{
+	padding:2rem;
+	border: 1px solid #999;
+	border-radius: 0.2rem;
+}
+
+.topic-header{
+	padding: 0.5rem;
+	font-size: 3.2rem;
+	border-bottom: 1px solid #999;
+}
+
+.post{
+	font-size: 1.8rem;
+	padding: 1rem;
+	background: rgba(255,255,255,0.1);
+	margin-top: 3rem;
+}
+
+.add-post-container{
+	text-align: left;
+}
+
+.add-post{
+	font-size: 1.8rem;
+	font-style: normal;
+	padding: 0.5rem;
+	border: 2px solid #7ab900;
+	border-radius: 0.2rem;
+}
+
+.add-post:hover{
+	transition: all .3s;
+	background: #7ab900;
 }

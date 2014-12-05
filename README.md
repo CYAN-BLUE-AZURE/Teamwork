@@ -1,1 +1,0 @@
-<h1>Team: <strong>CYAN-BLUE-AZURE</strong></h1>

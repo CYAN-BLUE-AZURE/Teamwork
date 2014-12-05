@@ -2,56 +2,36 @@
 <html>
 <head>
   <title>Home</title>
+  <!-- Sytyles -->
   <link rel="stylesheet" type="text/css" href="../styles/styles.css">
   <link rel="stylesheet" type="text/css" href="../styles/nav-styles.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="../styles/aside-styles.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script type="text/javascript" src="../scripts/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../scripts/scripts.js"></script>
-    <script type="text/javascript" src="../scripts/loadSectionsAndTopics.js"></script>
-    <script type="text/javascript" src="../scripts/jquery-dateFormat.min.js"></script>
+  <script type="text/javascript" src="../scripts/scripts.js"></script>
+  <script type="text/javascript" src="../scripts/loadSectionsAndTopics.js"></script>
+  <script type="text/javascript" src="../scripts/jquery-dateFormat.min.js"></script>
   <!-- Notification -->
   <link rel="stylesheet" type="text/css" href="../styles/sudo-notify.css" />
   <script type="text/javascript" src="../scripts/sudo-notify.js"></script>
 </head>
 
 <body>
-    <div id="notificationContainer"></div>
+  <div id="notificationContainer"></div>
   <header>
     <div id='cssmenu'>
       <ul id="navigation">
       </ul>
     </div>
     <div class="search-form">
-    <input type="text" id="search" placeholder="TODO:">
+      <input type="text" id="search" placeholder="TODO:">
       <a href="#">Search</a>
     </div>
   </header>
   <main>
     <div class="wrapper">
-      <div id="categories">
-          <label for="add-category">Categories: </label>
-          <input type="text" id="addCategory" placeholder="New category here..." />
-          <input type="button" id="addCategoryBtn" value="Add category" />
-          <ul id="sections"></ul>
-      </div>
-      <div id="topicsMain">
-            <label for="add-topic">Topics: </label>
-            <input type="text" id="addTopic" placeholder="New topic here..." />
-            <input type="button" id="addTopicBtn" value="Add topic" />
-          
-          <div id="topics">
-              <h2></h2>
-          </div>
-      </div>
-      <div id="posts" style="display:none">
-        <h2>Posts</h2>
-        <div>
-        </div>
-      </div>
-      <div id="advertisements">TODO ADVERTISEMENTS
-      </div>		
-      <!-- TODO: -->
+      <div id="content"></div>
     </div>
   </main>
   <footer>

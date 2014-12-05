@@ -1,0 +1,50 @@
+#categories {
+width: 25%;
+padding: 0 0 0 0;
+font-size: 11px;
+font-weight: normal;
+font-family: Verdana, Lucida, Geneva, Helvetica, Arial, sans-serif;
+background:none;
+color: #333;
+}
+
+#categories ul {
+list-style: none;
+margin: 0;
+padding: 0;
+border: none;
+}		
+
+#categories li {
+margin: 0;
+width: auto;
+padding:0 8px 1px 8px;
+}
+
+#categories li a {
+font-size:1.2rem;
+display: block;
+padding: 3px 0px 3px 0;
+background:none;
+color : #A79787;
+text-decoration: none;
+width: auto;
+border-top: 1px solid #7ab900;
+}
+
+#categories li a:hover {
+color: #fff;
+font-weight:bold;
+}
+.selected{
+color: #fff;
+font-weight:bold;
+}
+
+.hw12 {
+font-size : 18px; 
+font-weight : bold; 
+color : #A79787; 
+text-decoration : none; 
+padding-left: 5px;
+}
