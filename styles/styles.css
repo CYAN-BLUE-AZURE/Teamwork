@@ -217,3 +217,13 @@ legend{
 	transition: all .3s;
 	background: #7ab900;
 }
+
+.advert {
+	//position: absolute;
+	margin:0 auto;
+	padding: 10px;
+	border: 2px solid #7ab900;
+	position: fixed;
+    top: 30px;
+    right: 5px;;
+}

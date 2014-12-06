@@ -95,6 +95,28 @@ $(function () {
 			});
 }
 
+function loadAdvertisement() {	
+	$.ajax({
+		url: urlAdvertisements,
+		type: 'GET',
+		headers: HEADERS,
+		success: function (data) {        			    			
+			var adverts = data.results;
+			var randomIndex = Math.floor((Math.random() * adverts.length)); 
+			var currentAdvertLink = $('<a class="addvertLink" href="#"></a>');
+			currentAdvertLink.appendTo(CONTENT);
+			var currentAdvertImage = $('<img>').addClass('advert').attr('src', adverts[randomIndex].file.url).attr('height', '300');				
+			currentAdvertImage.appendTo(currentAdvertLink);
+			console.log(adverts[randomIndex].file.url);			       			
+		},
+		error: function (err) {
+			errorMessage(err.responseText, "Error occurred while loading advertisement.");
+		}
+	});
+}
+
+
+
 function getDateTimeForPrint(inputDate){
 	var hours = inputDate.getHours();
 	var minutes = inputDate.getMinutes();
@@ -216,7 +238,7 @@ function addPost(topicId){
     // 		contentType: "application/json",
     // 		success: [sectionCleaned(),loadSections()],
     // 		error: function (err) {
-    // 			errorMessage(err, 'Error occured when loading sections');
+    // 			errorMessage(err, 'Error occured while loading sections');
     // 		}
     // 	});
     // }
@@ -251,7 +273,7 @@ function addPost(topicId){
     // 		contentType: "application/json",
     // 		success: [topicCleaned(), loadTopics()],
     // 		error: function (err) {
-    // 			errorMessage(err, 'Error occured when loading topics');
+    // 			errorMessage(err, 'Error occured while loading topics');
     // 		}
     // 	});
     // }
@@ -284,7 +306,7 @@ function addPost(topicId){
     // 		url: 'https://api.parse.com/1/classes/Post?where={"topic":{"__type":"Pointer","className":"Topic","objectId":"' + topicId + '"}}',
     // 		success: postsLoaded,
     // 		error: function (err) {
-    // 			errorMessage(err, 'Error occured when loading posts');
+    // 			errorMessage(err, 'Error occured while loading posts');
     // 		}
     // 	});
     // }
@@ -320,5 +342,6 @@ function addPost(topicId){
     // }
 
     loadSections();
+	//loadAdvertisement();
 });
 });
