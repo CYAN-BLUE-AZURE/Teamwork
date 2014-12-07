@@ -109,7 +109,7 @@ label{
 	background:rgba(255,255,255,0.1);
 }
 
-input{
+input[type=text]{
 	font-size: 1.8rem;
 	width: 30rem;
 	border-radius: 0.2rem;
