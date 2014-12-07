@@ -32,6 +32,7 @@ body{
 a{
 	text-decoration: none;
 	color: #E2E2E2;
+	cursor: pointer !important;
 }
 
 .wrapper{
@@ -74,7 +75,7 @@ header{
 	vertical-align: top;
 }
 
-.register-form,.login-form{
+.register-form,.login-form,.new-topic-container,.new-post-container{
 	font-size: 2.2rem;
 	text-align: center;
 	width: 100%;
@@ -108,15 +109,18 @@ label{
 	transition: all .3s;
 	background:rgba(255,255,255,0.1);
 }
-
-input{
+option{
+	background: #444 url(../images/bg3.png) 0 0 repeat;;
+}
+input,textarea,select{
 	font-size: 1.8rem;
-	width: 30rem;
+	width: 40rem;
 	border-radius: 0.2rem;
 	margin: 0.2rem;
 	border: none;
 	background: rgba(255,255,255,0.1);
 	color: #E2E2E2;
+	font-family: Verdana;
 }
 
 #footer{
@@ -216,6 +220,51 @@ legend{
 .add-post:hover{
 	transition: all .3s;
 	background: #7ab900;
+}
+
+label{
+	vertical-align: top;
+}
+
+.new-post-container{
+	border:1px solid rgba(255,255,255,0.2);
+	padding: 0 3rem 3rem 3rem;
+	border-radius: 0.2rem;
+}
+
+.new-post-container textarea{
+	width: 100%;
+	margin-bottom: 3rem;
+	resize:none;
+	background: rgba(255,255,255,0.2);
+}
+
+.new-post-container #add-new-post{
+	font-size: 2.5rem;
+	font-style: normal;
+	padding: 0.5rem;
+	border: 2px solid #7ab900;
+	border-radius: 0.2rem;
+	width: 100%;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+}
+
+.new-post-container #add-new-post:hover{
+	transition: all .3s;
+	background: #7ab900;
+}
+
+.new-post-container #close-new-post-container{
+	font-size: 2.5rem;
+	font-style: normal;
+	margin-left: 101%;
+}
+
+.new-post-container #close-new-post-container:hover{
+	transition: all .3s;
+	color: #9D0000;
 }
 
 .advert {	
