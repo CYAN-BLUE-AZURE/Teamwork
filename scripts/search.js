@@ -1,17 +1,31 @@
 (function() {
     $(function() {
-		var button = $('.search-form button');
+		var submitButton = $('.search-form input[type=submit]');
+		var searchInput = $('#search');
 		
-		button.click(function(){
-			var searchValue = $('#search').val();
-			var words = searchValue.split(' ');
-			var sections = $('.section legend');
-			for(var i = 0; i < sections.length; i++){
-				if (!areWordsInTheText(words, sections[i].innerText)){
-					sections[i].parentNode.style.display = "none";
+		var search = function(){
+			var searchValue = htmlEncode(searchInput.val());
+			if (searchValue !== ''){
+				var words = searchValue.split(' ');
+				var sections = $('.section legend');
+				
+				for(var i = 0; i < sections.length; i++){
+					var parent = sections[i].parentNode;
+					parent.style.display = "block";
+					if (!areWordsInTheText(words, sections[i].innerText)){
+						parent.style.display = "none";
+					}
 				}
 			}
-		});
+		}
+		
+		submitButton.click(search);
+		
+		function htmlEncode(string){
+			var el = document.createElement('div');
+			el.innerText = string;
+			return el.innerHTML;
+		}
 		
 		function isWordContainsInString(word, string){
 			var lowerWord = word.toLowerCase();

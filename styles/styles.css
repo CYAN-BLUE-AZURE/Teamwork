@@ -123,6 +123,10 @@ input,textarea,select{
 	font-family: Verdana;
 }
 
+input[type=submit]{
+	width: 10rem;
+}
+
 #footer{
 	text-align: center;  
 	font-size: 1.0rem;	
