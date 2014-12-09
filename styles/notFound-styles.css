@@ -1,0 +1,22 @@
+.notFound {    	
+    margin: 30px 20px;
+	color: #E2E2E2;
+    font-size: 2rem;    
+}
+
+.notFound p:first-child {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.notFound p:last-child a {
+    color: #689b05;        
+}
+
+.notFound p:last-child {
+    margin-top: 40px;     
+}
+
+#cssmenu {
+	margin-top: 28px;
+}

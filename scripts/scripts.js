@@ -286,7 +286,7 @@ $(function () {
 			var password = $('#login-password').val();
 
 			if(username.length < 3 || password.length < 5){
-				notify('error','Invalid username or password');
+				notify('error','Username or password is too short.');
 			}else{
 				$.ajax({
 					url: "https://api.parse.com/1/login",
