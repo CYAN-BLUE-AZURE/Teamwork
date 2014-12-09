@@ -7,8 +7,8 @@
         'X-Parse-Application-Id': 'NShcyWno2Uj50blkpsekNdhALQQHsj1tEn3S8FNM',
         'X-Parse-REST-API-Key': 'KejEFjfrcFil5R7i9Brk0hm07MC8i6nNmyyfnPmM'
     }
-    var REGISTER_HTML_ADDRESSS = "http://files.parsetfss.com/8da9deb0-d635-4765-9fb1-67e0a9ce75bd/tfss-08b65838-0a8e-4fa9-839c-8b93175dfda9-register.html";
-    var LOGIN_HTML_ADDRES = "http://files.parsetfss.com/8da9deb0-d635-4765-9fb1-67e0a9ce75bd/tfss-10a28de7-7bcd-4828-8908-332538b37ca2-login.html";
+    var REGISTER_HTML_ADDRESSS = "http://files.parsetfss.com/8da9deb0-d635-4765-9fb1-67e0a9ce75bd/tfss-32d0e404-b3a5-4fe6-9ae1-9769aad1d574-login.html";
+    var LOGIN_HTML_ADDRES = "http://files.parsetfss.com/8da9deb0-d635-4765-9fb1-67e0a9ce75bd/tfss-4c51a20a-e338-41a5-bc8e-1959662c37c5-login.html";
     var NEW_TOPIC_ADDRESS = "http://files.parsetfss.com/8da9deb0-d635-4765-9fb1-67e0a9ce75bd/tfss-2ad44d61-d3b2-4b81-9df8-2a07474d2442-newTopic.html";
     var PROFILE_HTML_ADDRES = "http://files.parsetfss.com/8da9deb0-d635-4765-9fb1-67e0a9ce75bd/tfss-cd3d54ca-352c-41be-bb04-bd25eb9c07b5-profile.html";
     var CONTENT;
